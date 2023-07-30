@@ -1,56 +1,29 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
   margin: 0;
-  padding: 0;
+  background-color: #f1f1f1;
 }
 
-header {
-  background-color: #333;
-  color: #fff;
+.container {
   text-align: center;
-  padding: 20px;
 }
 
-.diary-entry {
-  max-width: 600px;
-  margin: 0 auto;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  margin-top: 20px;
-  position: relative;
-}
-
-.song {
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.entry-text {
+.sliding-text {
   overflow: hidden;
+  white-space: nowrap;
+  border: 1px solid #333;
+  padding: 10px;
+  animation: slide 10s linear infinite;
 }
 
-.entry-text p {
-  margin: 0;
-  padding: 5px;
-}
-
-.line {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background-color: #007bff;
-  animation: slideLine 3s infinite;
-}
-
-@keyframes slideLine {
+@keyframes slide {
   0% {
-    transform: translateX(-100%);
+    transform: translateX(100%);
   }
   100% {
-    transform: translateX(100%);
+    transform: translateX(-100%);
   }
 }
