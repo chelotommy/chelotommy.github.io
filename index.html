@@ -20,6 +20,33 @@
             color: #666;
         }
         /* Add more styles as needed */
+        .cake-icon {
+            position: fixed;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            z-index: 9999;
+        }
+        .cake-icon img {
+            width: 50px;
+            height: auto;
+        }
+        .birthday-wishes-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 9999;
+        }
+        .birthday-wishes-popup p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
@@ -28,6 +55,11 @@
         <source src="love.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
+
+    <div class="cake-icon">
+        <!-- Replace the src attribute with the path to your cake icon -->
+        <img src="cake-icon.png" alt="Cake Icon" onclick="showBirthdayWishes()">
+    </div>
 
     <h1>DECEMBER 12</h1>
     <p>
@@ -42,18 +74,23 @@
         <p>&copy; 2023 Your Name</p>
     </footer>
 
-    <!-- JavaScript to repeat audio playback -->
+    <!-- Birthday wishes popup -->
+    <div class="birthday-wishes-popup" id="birthdayWishes">
+        <p>Happy Birthday to Boo!</p>
+        <p>On this special day, may your heart be filled with joy and your life be blessed with all the happiness you deserve. Wishing you an amazing birthday celebration surrounded by love and laughter. Cheers to another wonderful year ahead!</p>
+    </div>
+
+    <!-- JavaScript to show/hide birthday wishes popup -->
     <script>
-        const audioElement = document.getElementById('loveAudio');
+        function showBirthdayWishes() {
+            const popup = document.getElementById('birthdayWishes');
+            popup.style.display = 'block';
+        }
 
-        audioElement.addEventListener('ended', function() {
-            // When the audio ends, play it again from the beginning
-            audioElement.currentTime = 0;
-            audioElement.play();
-        });
-
-        // Start playing the audio
-        audioElement.play();
+        function hideBirthdayWishes() {
+            const popup = document.getElementById('birthdayWishes');
+            popup.style.display = 'none';
+        }
     </script>
 </body>
 </html>
