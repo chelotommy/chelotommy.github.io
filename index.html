@@ -47,6 +47,12 @@
             font-size: 18px;
             margin-bottom: 10px;
         }
+        .close-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -76,6 +82,7 @@
 
     <!-- Birthday wishes popup -->
     <div class="birthday-wishes-popup" id="birthdayWishes">
+        <span class="close-button" onclick="hideBirthdayWishes()">&times;</span>
         <p>Happy Birthday to Boo!</p>
         <p>On this special day, may your heart be filled with joy and your life be blessed with all the happiness you deserve. Wishing you an amazing birthday celebration surrounded by love and laughter. Cheers to another wonderful year ahead!</p>
     </div>
