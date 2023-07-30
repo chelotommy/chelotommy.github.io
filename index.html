@@ -65,7 +65,20 @@
         }
         /* Slide bar styles */
         .slide-bar {
-            margin-top: 20px;
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 250px;
+            background-color: #f2f2f2;
+            z-index: 9999;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .slide-bar.show {
+            transform: translateX(0);
         }
         .slide-bar label {
             display: block;
@@ -94,11 +107,14 @@
 
     <!-- Add more content as needed -->
 
-    <!-- Slide bar for calendar -->
-    <div class="slide-bar">
+    <!-- Slide bar for calendar menu -->
+    <div class="slide-bar" id="calendarMenu">
         <label for="datePicker">Select Date:</label>
         <input type="text" id="datePicker">
     </div>
+
+    <!-- Add a button to toggle the calendar menu -->
+    <button onclick="toggleCalendarMenu()">Open Calendar</button>
 
     <!-- Footer -->
     <footer>
@@ -112,10 +128,11 @@
         <p>On this special day, may your heart be filled with joy and your life be blessed with all the happiness you deserve. Wishing you an amazing birthday celebration surrounded by love and laughter. Cheers to another wonderful year ahead!</p>
     </div>
 
-    <!-- JavaScript to control audio, show/hide birthday wishes popup, and initialize Flatpickr -->
+    <!-- JavaScript to control audio, show/hide birthday wishes popup, and toggle calendar menu -->
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
         const audioElement = document.getElementById('loveAudio');
+        const calendarMenu = document.getElementById('calendarMenu');
 
         function playAudioAndShowWishes() {
             audioElement.play();
@@ -137,13 +154,16 @@
             audioElement.pause();
         });
 
+        function toggleCalendarMenu() {
+            calendarMenu.classList.toggle('show');
+        }
+
         // Initialize Flatpickr with the date input field
         flatpickr("#datePicker", {
             dateFormat: "F j, Y", // Date format (e.g., "January 1, 2023")
             defaultDate: "today", // Set the default date to today
             altInput: true, // Show the selected date in the input field
             altFormat: "F j, Y", // Format for the alternate input field
-            inline: true, // Show the calendar as an inline element
             shorthandCurrentMonth: true, // Display the current month in a shortened format (e.g., "Sep" instead of "September")
             minDate: "2023-01-01", // Optional: Minimum selectable date
             maxDate: "2023-12-31", // Optional: Maximum selectable date
