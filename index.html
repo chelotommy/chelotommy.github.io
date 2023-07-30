@@ -24,7 +24,7 @@
 </head>
 <body>
     <!-- Add the audio element -->
-    <audio controls autoplay>
+    <audio id="loveAudio" controls>
         <source src="love.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
@@ -41,5 +41,19 @@
     <footer>
         <p>&copy; 2023 Your Name</p>
     </footer>
+
+    <!-- JavaScript to repeat audio playback -->
+    <script>
+        const audioElement = document.getElementById('loveAudio');
+
+        audioElement.addEventListener('ended', function() {
+            // When the audio ends, play it again from the beginning
+            audioElement.currentTime = 0;
+            audioElement.play();
+        });
+
+        // Start playing the audio
+        audioElement.play();
+    </script>
 </body>
 </html>
