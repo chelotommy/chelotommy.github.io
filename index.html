@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Love Story</title>
-    <!-- Include Flatpickr CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <style>
         /* Your existing CSS styles here */
         body {
@@ -40,7 +38,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background-color: #fff;
+            background-color: #f2f2f2; /* Changed background color to gray */
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             z-index: 9999;
@@ -48,6 +46,7 @@
         .birthday-wishes-popup p {
             font-size: 18px;
             margin-bottom: 10px;
+            color: #666; /* Changed text color to gray */
         }
         .close-button {
             position: absolute;
@@ -63,27 +62,6 @@
             text-align: center;
             margin-top: 20px;
         }
-        /* Slide bar styles */
-        .slide-bar {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 250px;
-            background-color: #f2f2f2;
-            z-index: 9999;
-            padding: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-        .slide-bar.show {
-            transform: translateX(0);
-        }
-        .slide-bar label {
-            display: block;
-            margin-bottom: 5px;
-        }
     </style>
 </head>
 <body>
@@ -93,7 +71,7 @@
         Your browser does not support the audio element.
     </audio>
 
-    <div class="cake-icon" onclick="playAudioAndShowWishes()">
+    <div class="cake-icon" onclick="closeBirthdayWishes()">
         <!-- Replace the src attribute with the path to your cake icon (img/phone.png) -->
         <img src="img/cake.png" alt="Cake Icon">
     </div>
@@ -107,14 +85,8 @@
 
     <!-- Add more content as needed -->
 
-    <!-- Slide bar for calendar menu -->
-    <div class="slide-bar" id="calendarMenu">
-        <label for="datePicker">Select Date:</label>
-        <input type="text" id="datePicker">
-    </div>
-
-    <!-- Add a button to toggle the calendar menu -->
-    <button onclick="toggleCalendarMenu()">Open Calendar</button>
+    <!-- Button to open the birthday wishes popup -->
+    <button onclick="playAudioAndShowWishes()">Open Birthday Wishes</button>
 
     <!-- Footer -->
     <footer>
@@ -128,11 +100,9 @@
         <p>On this special day, may your heart be filled with joy and your life be blessed with all the happiness you deserve. Wishing you an amazing birthday celebration surrounded by love and laughter. Cheers to another wonderful year ahead!</p>
     </div>
 
-    <!-- JavaScript to control audio, show/hide birthday wishes popup, and toggle calendar menu -->
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <!-- JavaScript to control audio and show/hide birthday wishes popup -->
     <script>
         const audioElement = document.getElementById('loveAudio');
-        const calendarMenu = document.getElementById('calendarMenu');
 
         function playAudioAndShowWishes() {
             audioElement.play();
@@ -149,24 +119,14 @@
             popup.style.display = 'none';
         }
 
+        function closeBirthdayWishes() {
+            const popup = document.getElementById('birthdayWishes');
+            popup.style.display = 'none';
+        }
+
         // Stop the audio when the user closes or navigates away from the website
         window.addEventListener('beforeunload', () => {
             audioElement.pause();
-        });
-
-        function toggleCalendarMenu() {
-            calendarMenu.classList.toggle('show');
-        }
-
-        // Initialize Flatpickr with the date input field
-        flatpickr("#datePicker", {
-            dateFormat: "F j, Y", // Date format (e.g., "January 1, 2023")
-            defaultDate: "today", // Set the default date to today
-            altInput: true, // Show the selected date in the input field
-            altFormat: "F j, Y", // Format for the alternate input field
-            shorthandCurrentMonth: true, // Display the current month in a shortened format (e.g., "Sep" instead of "September")
-            minDate: "2023-01-01", // Optional: Minimum selectable date
-            maxDate: "2023-12-31", // Optional: Maximum selectable date
         });
     </script>
 </body>
