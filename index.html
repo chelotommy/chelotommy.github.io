@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Love Story</title>
     <style>
-        /* Your existing CSS styles here */
+        /* Add your CSS styles here */
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
@@ -38,7 +38,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background-color: #f2f2f2; /* Changed background color to gray */
+            background-color: #fff;
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             z-index: 9999;
@@ -46,7 +46,6 @@
         .birthday-wishes-popup p {
             font-size: 18px;
             margin-bottom: 10px;
-            color: #666; /* Changed text color to gray */
         }
         .close-button {
             position: absolute;
@@ -71,7 +70,7 @@
         Your browser does not support the audio element.
     </audio>
 
-    <div class="cake-icon" onclick="closeBirthdayWishes()">
+    <div class="cake-icon" onclick="playAudioAndShowWishes()">
         <!-- Replace the src attribute with the path to your cake icon (img/phone.png) -->
         <img src="img/cake.png" alt="Cake Icon">
     </div>
@@ -84,9 +83,6 @@
     <img src="img/phone.png" alt="Image description">
 
     <!-- Add more content as needed -->
-
-    <!-- Button to open the birthday wishes popup -->
-    <button onclick="playAudioAndShowWishes()">Open Birthday Wishes</button>
 
     <!-- Footer -->
     <footer>
@@ -115,11 +111,6 @@
         }
 
         function hideBirthdayWishes() {
-            const popup = document.getElementById('birthdayWishes');
-            popup.style.display = 'none';
-        }
-
-        function closeBirthdayWishes() {
             const popup = document.getElementById('birthdayWishes');
             popup.style.display = 'none';
         }
