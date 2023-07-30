@@ -62,9 +62,9 @@
         Your browser does not support the audio element.
     </audio>
 
-    <div class="cake-icon">
+    <div class="cake-icon" onclick="playAudioAndShowWishes()">
         <!-- Replace the src attribute with the path to your cake icon (img/phone.png) -->
-        <img src="img/phone.png" alt="Cake Icon" onclick="showBirthdayWishes()">
+        <img src="img/cake.png" alt="Cake Icon">
     </div>
 
     <h1>DECEMBER 12</h1>
@@ -77,7 +77,7 @@
     <!-- Add more content as needed -->
 
     <footer>
-        <p>&copy; 2023 Made with love by TOMMY</p>
+        <p>&copy; 2023 MADE BY TOMMY</p>
     </footer>
 
     <!-- Birthday wishes popup -->
@@ -87,8 +87,15 @@
         <p>On this special day, may your heart be filled with joy and your life be blessed with all the happiness you deserve. Wishing you an amazing birthday celebration surrounded by love and laughter. Cheers to another wonderful year ahead!</p>
     </div>
 
-    <!-- JavaScript to show/hide birthday wishes popup -->
+    <!-- JavaScript to control audio and show/hide birthday wishes popup -->
     <script>
+        const audioElement = document.getElementById('loveAudio');
+
+        function playAudioAndShowWishes() {
+            audioElement.play();
+            showBirthdayWishes();
+        }
+
         function showBirthdayWishes() {
             const popup = document.getElementById('birthdayWishes');
             popup.style.display = 'block';
