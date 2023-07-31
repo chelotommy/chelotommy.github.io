@@ -1,81 +1,81 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Happy Birthday Boo</title>
-  <style>
-    /* CSS for slide-in animation */
-    #birthdayWish {
-      position: absolute;
-      right: 100%;
-      top: 50%;
-      transform: translateY(-50%);
-      transition: right 1s;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday BOO❤️</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('love.png');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-    #birthdayWish.slide-in {
-      right: 50%;
-    }
+        #container {
+            max-width: 600px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+        }
 
-    /* CSS to center the text */
-    #centeredText {
-      text-align: center;
-    }
+        h1 {
+            text-align: center;
+            color: #ff4500;
+        }
 
-    /* CSS for background gradient and color */
-    body {
-      background: linear-gradient(90deg, black, blue, yellow);
-      background-size: 300% 300%;
-      animation: gradientAnimation 10s ease infinite;
-      background-color: #EC458D;
-    }
+        p {
+            text-align: center;
+            font-size: 18px;
+            line-height: 1.6;
+        }
 
-    @keyframes gradientAnimation {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-  </style>
+        ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+
+        li {
+            margin: 0 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #ff4500;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-  <div style="text-align: center;">
-    <h1>Happy Birthday Boo</h1>
-    <img id="logo" src="https://graph.org/file/339b47c5c2fe2aa87fe78.png" alt="logo" style="width: 200px; height: 200px;">
-    <p>"..."</p>
-    <p>- Anonymous</p>
+    <!-- Background Music -->
+    <audio autoplay loop>
+        <source src="love.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 
-    <!-- Slide-in paragraph with birthday wish in Tagalog -->
-    <div id="centeredText">
-      <p id="birthdayWish">Maligayang kaarawan, mahal kong asawa! Pagpalain ka ng Diyos at sana ay magkaroon ka ng masayang araw!</p>
+    <div id="container">
+        <h1>Happy Birthday Boo❤️!</h1>
+        <p>
+            Here's to a day filled with love, joy, and wonderful memories. You are an incredible person, and I am grateful to have you in my life. Your smile brightens my days, and your presence brings warmth to my heart.
+            <br><br>
+            May this birthday be the start of a new chapter of happiness and success. I wish you all the best on this special day and every day. Cheers to many more birthdays together!
+        </p>
+        <ul>
+            <li><a href="https://www.facebook.com/profile.php?id=100075267501120" target="_blank">Boo❤️</a></li>
+            <!-- Add more menu items as needed -->
+        </ul>
     </div>
-  </div>
-
-  <audio id="audio" src="love.mp3" loop></audio>
-
-  <script>
-    const logo = document.getElementById("logo");
-    const audio = document.getElementById("audio");
-    const birthdayWish = document.getElementById("birthdayWish");
-
-    // Play love.mp3 and show the birthday wish when the logo is clicked
-    logo.addEventListener("click", () => {
-      audio.play();
-
-      // Add slide-in class to the birthdayWish paragraph after a short delay
-      setTimeout(() => {
-        birthdayWish.classList.add("slide-in");
-      }, 100);
-    });
-
-    // Stop playing love.mp3 when the website is closed
-    window.addEventListener("beforeunload", () => {
-      audio.pause();
-    });
-  </script>
 </body>
 </html>
