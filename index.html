@@ -1,142 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Love Story</title>
-    <style>
-        /* ... Existing CSS styles ... */
-        /* Add styles for the slide-out menu */
-        .menu-icon {
-            position: fixed;
-            top: 50%;
-            right: 10px;
-            transform: translateY(-50%);
-            cursor: pointer;
-            z-index: 9999;
-        }
-        .menu-icon img {
-            width: 40px;
-            height: auto;
-        }
-        .menu {
-            position: fixed;
-            top: 0;
-            right: -250px; /* Hide the menu by default */
-            width: 250px;
-            height: 100%;
-            background-color: #f2f2f2;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            z-index: 9999;
-            transition: right 0.3s ease-in-out;
-        }
-        .menu ul {
-            list-style: none;
-            padding: 0;
-        }
-        .menu li {
-            margin-bottom: 10px;
-        }
-        .menu a {
-            color: #333;
-            text-decoration: none;
-            font-size: 18px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birthday Wishes</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
-    <!-- Add the audio element -->
-    <audio id="loveAudio" controls loop autoplay>
-        <source src="love.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
+  <header>
+    <h1>Birthday Wishes</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <!-- Add the cake icon -->
-    <div class="cake-icon" onclick="playAudioAndShowWishes()">
-        <img src="img/cake.png" alt="Cake Icon">
+  <section id="home">
+    <div class="background-image"></div>
+    <div class="centered-content fade-in">
+      <h2>Happy Birthday!</h2>
+      <img src="images/cake.gif" alt="Birthday Cake">
+      <p>Wishing you a fantastic birthday filled with joy and happiness!</p>
     </div>
+  </section>
 
-    <!-- Add the slide-out menu -->
-    <div class="menu-icon" onclick="toggleMenu()">
-        <img src="img/menu.png" alt="Menu Icon">
+  <section id="about">
+    <div class="centered-content fade-in">
+      <h2>About</h2>
+      <p>This is a special birthday wishes website with menus and animations.</p>
     </div>
+  </section>
 
-    <!-- Menu -->
-    <div class="menu" id="menu">
-        <ul>
-            <li><a href="mailto:ukwbh2x1e0@qiott.com" onclick="hideMenu()">Contact</a></li>
-            <li><a href="#callback" onclick="hideMenu()">Callback</a></li>
-            <li><a href="#" onclick="hideMenu()">Close</a></li>
-        </ul>
+  <section id="contact">
+    <div class="centered-content fade-in">
+      <h2>Contact</h2>
+      <p>Feel free to contact us for any queries or feedback.</p>
     </div>
+  </section>
 
-    <!-- Add the love story content -->
-    <h1>DECEMBER 12</h1>
-    <p>
-        Once upon a time, in a land far, far away...
-        <!-- Add your story content here -->
-    </p>
-    <img src="img/phone.png" alt="Image description">
-
-    <!-- Add more content as needed -->
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2023 MADE BY TOMMY</p>
-    </footer>
-
-    <!-- Birthday wishes popup -->
-    <div class="birthday-wishes-popup" id="birthdayWishes">
-        <span class="close-button" onclick="hideBirthdayWishes()">&times;</span>
-        <p>Happy Birthday to Boo!</p>
-        <p>On this special day, may your heart be filled with joy and your life be blessed with all the happiness you deserve. Wishing you an amazing birthday celebration surrounded by love and laughter. Cheers to another wonderful year ahead!</p>
-    </div>
-
-    <!-- JavaScript to control audio and show/hide birthday wishes popup -->
-    <script>
-        const audioElement = document.getElementById('loveAudio');
-
-        function playAudioAndShowWishes() {
-            audioElement.play();
-            showBirthdayWishes();
-        }
-
-        function showBirthdayWishes() {
-            const popup = document.getElementById('birthdayWishes');
-            popup.style.display = 'block';
-        }
-
-        function hideBirthdayWishes() {
-            const popup = document.getElementById('birthdayWishes');
-            popup.style.display = 'none';
-        }
-
-        function toggleMenu() {
-            const menu = document.getElementById('menu');
-            const menuOpen = (menu.style.right === '-250px');
-
-            if (menuOpen) {
-                showMenu();
-            } else {
-                hideMenu();
-            }
-        }
-
-        function showMenu() {
-            const menu = document.getElementById('menu');
-            menu.style.right = '0';
-        }
-
-        function hideMenu() {
-            const menu = document.getElementById('menu');
-            menu.style.right = '-250px';
-        }
-
-        // Stop the audio when the user closes or navigates away from the website
-        window.addEventListener('beforeunload', () => {
-            audioElement.pause();
-        });
-    </script>
+  <script src="js/scripts.js"></script>
 </body>
+
 </html>
