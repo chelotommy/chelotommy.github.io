@@ -5,14 +5,15 @@
   <style>
     /* CSS for slide-in animation */
     #birthdayWish {
-      opacity: 0;
-      transform: translateY(100%);
-      transition: opacity 1s, transform 1s;
+      position: absolute;
+      right: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: right 1s;
     }
 
     #birthdayWish.slide-in {
-      opacity: 1;
-      transform: translateY(0);
+      right: 50%;
     }
   </style>
 </head>
@@ -24,7 +25,7 @@
     <p>- Anonymous</p>
 
     <!-- Slide-in paragraph with birthday wish in Tagalog -->
-    <p id="birthdayWish" class="slide-in">Maligayang kaarawan, mahal kong asawa! Pagpalain ka ng Diyos at sana ay magkaroon ka ng masayang araw!</p>
+    <p id="birthdayWish">Maligayang kaarawan, mahal kong asawa! Pagpalain ka ng Diyos at sana ay magkaroon ka ng masayang araw!</p>
   </div>
 
   <audio id="audio" src="love.mp3" loop></audio>
@@ -34,19 +35,19 @@
     const audio = document.getElementById("audio");
     const birthdayWish = document.getElementById("birthdayWish");
 
-    // Play love.mp3 when the logo is clicked
+    // Play love.mp3 and show the birthday wish when the logo is clicked
     logo.addEventListener("click", () => {
       audio.play();
+
+      // Add slide-in class to the birthdayWish paragraph after a short delay
+      setTimeout(() => {
+        birthdayWish.classList.add("slide-in");
+      }, 100);
     });
 
     // Stop playing love.mp3 when the website is closed
     window.addEventListener("beforeunload", () => {
       audio.pause();
-    });
-
-    // Trigger slide-in animation after the page loads
-    window.addEventListener("load", () => {
-      birthdayWish.classList.add("slide-in");
     });
   </script>
 </body>
