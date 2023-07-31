@@ -44,11 +44,9 @@
       audio.pause();
     });
 
-    // Add slide-in class to the birthdayWish paragraph after a short delay
+    // Trigger slide-in animation after the page loads
     window.addEventListener("load", () => {
-      setTimeout(() => {
-        birthdayWish.classList.add("slide-in");
-      }, 1000); // Adjust the delay (in milliseconds) as desired
+      birthdayWish.classList.add("slide-in");
     });
   </script>
 </body>
