@@ -12,29 +12,46 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
-            position: relative; /* To position the countdown element */
         }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+        /* Add more styles as needed */
         .cake-icon {
             position: fixed;
-            top: 10px; /* Adjust the distance from the top */
-            left: 10px; /* Adjust the distance from the left */
+            top: 50%;
+            left: 10px;
             transform: translateY(-50%);
             cursor: pointer;
             z-index: 9999;
         }
         .cake-icon img {
-            width: 30px; /* Decrease the cake icon size */
+            width: 50px;
             height: auto;
         }
-        /* Add more styles as needed */
-        /* ... Rest of your styles ... */
-        /* Countdown Styles */
-        #countdown {
+        .birthday-wishes-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 9999;
+        }
+        .birthday-wishes-popup p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .close-button {
             position: absolute;
-            top: 10px; /* Adjust the distance from the top */
-            left: 50px; /* Adjust the distance from the left */
-            font-size: 16px;
-            color: #333;
+            top: 5px;
+            right: 5px;
+            cursor: pointer;
         }
         /* Footer Styles */
         footer {
@@ -43,37 +60,19 @@
             padding: 10px;
             text-align: center;
             margin-top: 20px;
-            position: relative;
-        }
-        footer:before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: 0;
-            right: 0;
-            height: 20px;
-            background-color: #f2f2f2;
-        }
-        footer:after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            right: 0;
-            height: 20px;
-            background-color: #f2f2f2;
         }
     </style>
 </head>
 <body>
+    <!-- Add the audio element -->
     <audio id="loveAudio" controls loop autoplay>
         <source src="love.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
     <div class="cake-icon" onclick="playAudioAndShowWishes()">
+        <!-- Replace the src attribute with the path to your cake icon (img/phone.png) -->
         <img src="img/cake.png" alt="Cake Icon">
-        <div>DECEMBER 12</div>
     </div>
 
     <h1>DECEMBER 12</h1>
@@ -83,20 +82,21 @@
     </p>
     <img src="img/phone.png" alt="Image description">
 
-    <!-- Countdown Section -->
-    <div id="countdown"></div>
+    <!-- Add more content as needed -->
 
     <!-- Footer -->
     <footer>
         <p>&copy; 2023 MADE BY TOMMY</p>
     </footer>
 
+    <!-- Birthday wishes popup -->
     <div class="birthday-wishes-popup" id="birthdayWishes">
         <span class="close-button" onclick="hideBirthdayWishes()">&times;</span>
         <p>Happy Birthday to Boo!</p>
         <p>On this special day, may your heart be filled with joy and your life be blessed with all the happiness you deserve. Wishing you an amazing birthday celebration surrounded by love and laughter. Cheers to another wonderful year ahead!</p>
     </div>
 
+    <!-- JavaScript to control audio and show/hide birthday wishes popup -->
     <script>
         const audioElement = document.getElementById('loveAudio');
 
@@ -114,32 +114,6 @@
             const popup = document.getElementById('birthdayWishes');
             popup.style.display = 'none';
         }
-
-        function updateAgeCountdown() {
-            const birthday = new Date('2002-07-24');
-            const now = new Date();
-            const age = now.getFullYear() - birthday.getFullYear();
-            const isBirthday = now.getMonth() === birthday.getMonth() && now.getDate() === birthday.getDate();
-
-            let countdownElement = document.getElementById('countdown');
-            if (isBirthday) {
-                countdownElement.textContent = "Happy " + age + "th Birthday!";
-            } else {
-                birthday.setFullYear(now.getFullYear());
-                if (now > birthday) {
-                    birthday.setFullYear(now.getFullYear() + 1);
-                }
-                const timeUntilBirthday = birthday.getTime() - now.getTime();
-                const days = Math.floor(timeUntilBirthday / (1000 * 60 * 60 * 24));
-                countdownElement.textContent = "Countdown to " + (age + 1) + "th Birthday: " + days + " days";
-            }
-        }
-
-        // Initial update
-        updateAgeCountdown();
-
-        // Update the age countdown every minute
-        setInterval(updateAgeCountdown, 60000);
 
         // Stop the audio when the user closes or navigates away from the website
         window.addEventListener('beforeunload', () => {
