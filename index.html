@@ -37,7 +37,32 @@
             color: #333;
         }
         /* Footer Styles */
-        /* ... Rest of your footer styles ... */
+        footer {
+            background-color: #f2f2f2;
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+            margin-top: 20px;
+            position: relative;
+        }
+        footer:before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 0;
+            right: 0;
+            height: 20px;
+            background-color: #f2f2f2;
+        }
+        footer:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            right: 0;
+            height: 20px;
+            background-color: #f2f2f2;
+        }
     </style>
 </head>
 <body>
@@ -48,6 +73,7 @@
 
     <div class="cake-icon" onclick="playAudioAndShowWishes()">
         <img src="img/cake.png" alt="Cake Icon">
+        <div>DECEMBER 12</div>
     </div>
 
     <h1>DECEMBER 12</h1>
